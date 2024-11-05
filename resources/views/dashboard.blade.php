@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container dashboard-container">
     <div class="row">
         <div class="col-md-4">
-            <div class="card">
+            <div class="card bg-primary">
                 <div class="card-body">
                     <h5 class="card-title">Registered Customers</h5>
                     <h2>{{ $stats['customers'] }}</h2>
@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card">
+            <div class="card bg-success">
                 <div class="card-body">
                     <h5 class="card-title">Registered Drivers</h5>
                     <h2>{{ $stats['drivers'] }}</h2>
@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card">
+            <div class="card bg-warning">
                 <div class="card-body">
                     <h5 class="card-title">Completed Rides</h5>
                     <h2>{{ $stats['completed_rides'] }}</h2>

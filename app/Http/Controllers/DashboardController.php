@@ -14,7 +14,7 @@ class DashboardController extends Controller
         $stats = [
             'customers' => Customer::count(),
             'drivers' => Driver::count(),
-            'completed_rides' => Ride::where('status', 'completed')->count(),
+            'completed_rides' => Ride::count(),
         ];
 
         return view('dashboard', compact('stats'));
