@@ -2,9 +2,23 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class drivers extends Model
+class Driver extends Model
 {
-    //
+    use HasFactory;
+
+    protected $fillable = [
+        'name', 
+        'phone_number',
+        'county',
+        'sub_county',
+        'vehicle_details', 
+    ];
+
+    public function rides()
+    {
+        return $this->hasMany(Ride::class);
+    }
 }
