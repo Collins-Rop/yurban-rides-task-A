@@ -6,6 +6,7 @@
     <title>{{ config('app.name', 'Rides Portal') }}</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('sass/dashboard.scss') }}" rel="stylesheet">
+    @stack('styles')
 </head>
 <body>
     <div id="app">
