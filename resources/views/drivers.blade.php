@@ -48,11 +48,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($drivers as $driver)
+                    @forelse($drivers as $driver)
                     <tr>
                         <td>{{ $driver->name }}</td>
-                        <td>{{ $driver->user->phone_number }}</td>
-                        <td>{{ $driver->county }}</td>
+                        <td>{{ $driver->phone_number }}</td>
+                        <!-- <td>{{ $driver->county }}</td> -->
                         <td>{{ $driver->sub_county }}</td>
                         <td>{{ $driver->created_at->format('Y-m-d H:i') }}</td>
                     </tr>

@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ config('app.name', 'Rides Portal') }}</title>
+    <title>{{ config('Yurban Rides', 'Rides Portal') }}</title>
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     @stack('styles')
 </head>
@@ -30,7 +31,7 @@
                             <a class="nav-link" href="{{ url('/home') }}">{{ __('Home') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/customer') }}">{{ __('Customer') }}</a>
+                            <a class="nav-link" href="{{ url('/customers') }}">{{ __('Customer') }}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/dashboard') }}">{{ __('Dashboard') }}</a>
@@ -48,23 +49,6 @@
         </main>
     </div>
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <style>
-        .navbar-nav .nav-item .nav-link {
-            color: #636b6f;
-            font-weight: 600;
-            text-transform: uppercase;
-            padding: 10px 15px;
-        }
-        .navbar-nav .nav-item .nav-link:hover {
-            color: #000;
-        }
-        .navbar-brand {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-        .navbar {
-            background-color: #f8fafc;
-        }
-    </style>
+    
 </body>
 </html>

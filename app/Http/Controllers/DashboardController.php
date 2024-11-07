@@ -37,6 +37,9 @@ class DashboardController extends Controller
 
     public function drivers(Request $request)
     {
+        $counties = ['Nairobi', 'Mombasa', 'Kisumu', 'Nakuru', 'Eldoret'];
+        $subCounties = ['Central', 'East', 'West', 'North', 'South'];
+
         $drivers = Driver::query()
             ->when($request->county, function($query) use ($request) {
                 return $query->where('county', $request->county);
@@ -47,7 +50,7 @@ class DashboardController extends Controller
             ->orderBy('created_at', 'desc')
             ->paginate(10);
 
-        return view('drivers', compact('drivers', 'counties', 'sub_counties'));
+        return view('drivers', compact('drivers', 'counties', 'subCounties'));
     }
 
     public function rides()
