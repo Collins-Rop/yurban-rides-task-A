@@ -2,25 +2,21 @@
 @section('content')
 @push('styles')
 <style>
-    /* Container for the main dashboard */
     .dashboard-container {
         margin-top: 20px;
         padding: 20px;
         background-color: #f5f5f5;
         border-radius: 10px;
     }
-
-    /* Styling for cards */
     .card {
         margin-bottom: 20px;
         border-radius: 10px;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for a cleaner look */
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         padding: 15px;
     }
 
-    /* Card colors */
     .card.bg-primary {
-        background-color: #ff4d4d; /* Bright red for primary */
+        background-color: #ff4d4d; 
         color: white;
     }
     .card.bg-success {
@@ -32,21 +28,17 @@
         color: white;
     }
 
-    /* Card title styling */
     .card-title {
         font-size: 1.2rem;
         font-weight: 600;
         margin-bottom: 10px;
     }
 
-    /* Card body with enlarged main text */
     .card-body h2 {
         font-size: 2.25rem;
         font-weight: bold;
         margin: 0;
     }
-
-    /* List styling within the dashboard */
     .list-group-item {
         font-size: 1rem;
         padding: 12px 20px;
@@ -57,12 +49,10 @@
         border-radius: 5px;
     }
 
-    /* Hover effect for list items */
     .list-group-item:hover {
         background-color: #f1f1f1;
     }
 
-    /* Chart container to control sizing */
     .chart-container {
         position: relative;
         height: 40vh;
@@ -73,8 +63,6 @@
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         padding: 20px;
     }
-
-    /* Centered content container */
     .centered {
         display: flex;
         justify-content: center;
@@ -82,7 +70,6 @@
         flex-direction: column;
     }
 
-    /* General body styling for consistency */
     body {
         font-family: Arial, sans-serif;
         color: #333;
