@@ -1,123 +1,62 @@
 @extends('layouts.app')
 
 @section('content')
-@push('styles')
-<style>
-    /* Primary Color Styling */
-    .primary-color {
-        color: #ff0000; /* Bright red */
-        font-size: 1.2rem;
-        font-weight: 500;
-    }
+<div class="flex justify-center mt-10">
+    <div class="w-full max-w-md">
+        <div class="bg-white shadow-lg rounded-lg">
+            <div class="bg-blue-600 text-white text-center text-xl font-semibold p-4 rounded-t-lg">
+                {{ __('Login Form') }}
+            </div>
 
-    /* Container Styling */
-    .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 20vh;
-        padding: 20px;
-        background-color: #f8f9fa; /* Light grey background for contrast */
-    }
+            <div class="p-6">
+                <form method="POST" action="{{ route('login') }}">
+                    @csrf
 
-    /* Card Styling */
-    .card {
-        width: 100%;
-        max-width: 500px;
-        border-radius: 10px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Soft shadow for depth */
-        overflow: hidden; /* Ensures rounded corners work correctly */
-        background-color: #ffffff; /* White card background */
-    }
+                    <div class="mb-4">
+                        <label for="phone_number" class="block text-gray-700 font-medium mb-2">
+                            {{ __('Phone Number') }}
+                        </label>
+                        <input id="phone_number" type="text" 
+                               class="w-full px-4 py-2 border border-gray-300 rounded-lg @error('phone_number') border-red-500 @enderror" 
+                               name="phone_number" value="{{ old('phone_number') }}" required>
+                        
+                        @error('phone_number')
+                            <span class="text-red-500 text-sm mt-2 block">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
 
-    /* Card Header Styling */
-    .card-header {
-        background-color: #ff0000; /* Bright red */
-        color: #ffffff; /* White text color for readability */
-        font-size: 2.2rem;
-        font-weight: 600;
-        padding: 15px 20px;
-        text-align: center;
-    }
+                    <div class="mb-4">
+                        <label for="pin" class="block text-gray-700 font-medium mb-2">
+                            {{ __('PIN') }}
+                        </label>
+                        <input id="pin" type="password" maxlength="4" 
+                               class="w-full px-4 py-2 border border-gray-300 rounded-lg @error('pin') border-red-500 @enderror" 
+                               name="pin" required>
+                        
+                        @error('pin')
+                            <span class="text-red-500 text-sm mt-2 block">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
 
-    /* Card Body Styling */
-    .card-body {
-        padding: 20px;
-        font-size: 1rem;
-        color: #333333; /* Dark grey for readability */
-        line-height: 1.6;
-    }
-
-    /* Responsive Adjustments */
-    @media (max-width: 576px) {
-        .card {
-            max-width: 90%;
-        }
-        .card-header {
-            font-size: 1.8rem;
-        }
-        .primary-color {
-            font-size: 1rem;
-        }
-    }
-</style>
-@endpush
-
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header primary-color">{{ __('Login Form') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="phone_number" class="col-md-4 col-form-label text-md-right primary-color">
-                                {{ __('Phone Number') }}
-                            </label>
-
-                            <div class="col-md-6">
-                                <input id="phone_number" type="text" 
-                                    class="form-control @error('phone_number') is-invalid @enderror" 
-                                    name="phone_number" value="{{ old('phone_number') }}" required>
-                                
-                                @error('phone_number')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                    <div class="flex justify-end">
+                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">
+                            {{ __('Login') }}
+                        </button>
+                    </div>
+                    <div>
+                    @if (Route::has('register'))
+                        <div class="mt-4 text-center">
+                            <a href="{{ route('register') }}" class="text-blue-600 hover:text-blue-700 font-medium text-sm">
+                                {{ __('Not registered? Sign up here') }}
+                            </a>
                         </div>
-
-                        <div class="form-group row">
-                            <label for="pin" class="col-md-4 col-form-label text-md-right primary-color">
-                                {{ __('PIN') }}
-                            </label>
-
-                            <div class="col-md-6">
-                                <input id="pin" type="password" maxlength="4"
-                                    class="form-control @error('pin') is-invalid @enderror" 
-                                    name="pin" required>
-                                
-                                @error('pin')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary primary-color">
-                                    {{ __('Login') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                    @endif
+                    </div>
+                </form>
             </div>
         </div>
     </div>

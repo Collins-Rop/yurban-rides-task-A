@@ -3,52 +3,46 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ config('app.name', 'Rides Portal') }}</title>
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <title>Rides Portal</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     @stack('styles')
 </head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Rides Portal') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-                        <!-- Add your menu items here -->
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/home') }}">{{ __('Home') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/customers') }}">{{ __('Customer') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/dashboard') }}">{{ __('Dashboard') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/drivers') }}">{{ __('Drivers') }}</a>
-                        </li>
-                    </ul>
-                </div>
+<body class="bg-gray-100 font-sans">
+    <div id="app" class="flex h-screen">
+        <!-- Sidebar -->
+        <nav class="bg-white w-64 min-h-full shadow-md">
+            <div class="p-6">
+                <h2 class="text-2xl font-bold text-red-600">Rides Portal</h2>
             </div>
+            <ul class="mt-6 space-y-4">
+                <li>
+                    <a href="{{ url('/home') }}" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-red-100 hover:text-red-700 text-gray-700">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url('/customers') }}" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-red-100 hover:text-red-700 text-gray-700">
+                        Customer
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url('/dashboard') }}" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-red-100 hover:text-red-700 text-gray-700">
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url('/drivers') }}" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-red-100 hover:text-red-700 text-gray-700">
+                        Drivers
+                    </a>
+                </li>
+            </ul>
         </nav>
 
-        <main class="py-4">
+        <!-- Main Content -->
+        <main class="flex-1 p-8 overflow-y-auto">
             @yield('content')
         </main>
     </div>
     <script src="{{ asset('js/app.js') }}" defer></script>
-    
 </body>
 </html>
