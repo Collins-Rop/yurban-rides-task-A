@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Driver;
 use App\Models\Customer;
+use App\Models\Ride;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -17,6 +18,9 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // User::factory(10)->create();
+        $statuses = ['completed', 'pending', 'canceled'];
+        $drivers = Driver::all();
+        $customers = Customer::all();
 
         User::factory()->create([
             "name"=> 'Admin',
@@ -26,7 +30,6 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('password')
         ]);
 
-        // Create 5 Drivers
         $counties = ['Nairobi', 'Mombasa', 'Kisumu', 'Nakuru', 'Eldoret'];
         $subCounties = ['Central', 'East', 'West', 'North', 'South'];
 
@@ -65,6 +68,15 @@ class DatabaseSeeder extends Seeder
                 'email'=> 'customer'. $i. @'gmail.com',
                 'user_id' => $user->id,
                 'name' => 'Customer ' . ($i - 5)
+            ]);
+        }
+
+        foreach (range(1, 20) as $index) {
+            Ride::create([
+                'driver_id' => $drivers->random()->id,
+                'customer_id' => $customers->random()->id,
+                'status' => $statuses[array_rand($statuses)],
+                'created_at' => now()->subDays(rand(0, 30)),
             ]);
         }
     }

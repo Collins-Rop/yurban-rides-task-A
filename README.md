@@ -1,66 +1,118 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Rides Portal
+## Overview
+The Rides Portal is a Laravel-based web application developed for managing rides, drivers, and customers efficiently. This platform allows administrators to monitor ride requests, drivers' activity, and customers' interactions, providing a centralized dashboard for tracking and managing ride-related operations. The app was built with an emphasis on an intuitive user interface, ease of use, and responsive design, making it suitable for administrative tasks and customer support.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Features
+- **Dashboard**: Overview of active rides, statistics on completed rides, and quick links to key sections.
+- **Customer Management**: Interface for viewing, filtering, and managing registered customers.
+- **Driver Management**: View and manage driver details, including contact information, status, and assignment history.
+- **Ride Management**: Detailed information on ride requests, status tracking, and date sorting.
 
-## About Laravel
+### Tech Stack
+- **Backend**: Laravel (PHP)
+- **Frontend**: Tailwind CSS, Blade templating engine
+- **Database**: MySQL (configured to use Eloquent ORM)
+- **Authentication**: Built-in Laravel authentication with role-based access control for admins, drivers, and customers
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Setup and Installation
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Prerequisites
+- PHP >= 8.0
+- Composer
+- Node.js and npm
+- MySQL
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Installation Steps
 
-## Learning Laravel
+1. **Clone the Repository**
+    ```bash
+    git clone https://github.com/Collins-Rop/rides-portal.git
+    cd rides-portal
+    ```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+2. **Install Dependencies**
+    ```bash
+    composer install
+    npm install && npm run dev
+    ```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+3. **Configure Environment**
+    - Duplicate the `.env.example` file and rename it to `.env`.
+    - Set up your database connection details in the `.env` file:
+      ```plaintext
+      DB_CONNECTION=mysql
+      DB_HOST=127.0.0.1
+      DB_PORT=3306
+      DB_DATABASE=rides_portal
+      DB_USERNAME=root(or the username you use)
+      DB_PASSWORD=password
+      ```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+4. **Generate Application Key**
+    ```bash
+    php artisan key:generate
+    ```
 
-## Laravel Sponsors
+5. **Run Migrations and Seed the Database**
+    ```bash
+    php artisan migrate:fresh --seed
+    ```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+6. **Serve the Application**
+    ```bash
+    php artisan serve
+    ```
 
-### Premium Partners
+7. **Access the Application**
+    - Open your browser and go to `http://127.0.0.1:8000`.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## Usage
 
-## Contributing
+### Dashboard
+The Dashboard provides an overview of active rides, total registered customers, and current active drivers. The visual interface allows quick access to the most important aspects of the platform.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+![Dashboard Screenshot](/images/dashboard.png)
 
-## Code of Conduct
+### Customers
+In the Customers section, you can view a list of all registered customers, filter them based on registration date, and access their contact information.
+![Customers Screenshot](/images/customers.png)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Drivers
+The Drivers section displays all registered drivers with their status, contact details, and other relevant information. This helps in tracking active drivers and managing their accounts.
+![Drivers Screenshot](/images/drivers.png)
 
-## Security Vulnerabilities
+### Rides
+The Rides section lists all ride requests in the system, displaying ride IDs, drivers assigned, customers, status, and request dates. You can sort rides to see the latest or earliest entries.
+![Rides Screenshot](/images/rides.png)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Database Seeding
+The seeder has been configured to create sample data, including admin, driver, and customer users, along with sample rides. To login as an administrator, use:
+- **Username**: Admin
+- **Password**: password
 
-## License
+Other user roles are created for drivers and customers.
+Sample view of database through MySQL workbench:
+![Database Screenshot](/images/MySQLworkbench.png)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Testing and Development
+
+### Running Tests
+You can run the provided unit and feature tests by executing:
+```bash
+php artisan test
+```
+
+### Customizing Styling
+The application uses Tailwind CSS for styling. To customize the styling:
+- Modify classes directly in Blade views.
+- Rebuild the CSS by running:
+  ```bash
+  npm run dev
+  ```
+
+## Troubleshooting
+
+- **Issue**: Database errors on seed
+  - **Solution**: Ensure that migrations were successful by checking if tables exist in your database, and verify your `.env` database credentials.
+- **Issue**: Cannot login
+  - **Solution**: Double-check seeder configurations for User creation and validate password settings.

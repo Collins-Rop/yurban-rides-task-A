@@ -9,7 +9,6 @@
 </head>
 <body class="bg-gray-100 font-sans">
     <div id="app" class="flex h-screen">
-        <!-- Sidebar -->
         <nav class="bg-white w-64 min-h-full shadow-md">
             <div class="p-6">
                 <h2 class="text-2xl font-bold text-red-600">Rides Portal</h2>
@@ -35,10 +34,12 @@
                         Drivers
                     </a>
                 </li>
+                <li>
+                    <a href="{{ url('/rides')}}" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-red-100 hover:text-red-700 text-gray-700">Rides</a>
+                </li>
             </ul>
         </nav>
 
-        <!-- Main Content -->
         <main class="flex-1 p-8 overflow-y-auto">
             @yield('content')
         </main>
