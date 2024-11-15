@@ -26,7 +26,7 @@ The Rides Portal is a Laravel-based web application developed for managing rides
 
 1. **Clone the Repository**
     ```bash
-    git clone https://github.com/Collins-Rop/rides-portal.git
+    git clone https://github.com/Collins-Rop/yurban-rides-task-A.git
     cd rides-portal
     ```
 
