@@ -11,7 +11,7 @@
     <div id="app" class="flex h-screen">
         <nav class="bg-white w-64 min-h-full shadow-md">
             <div class="p-6">
-                <h2 class="text-2xl font-bold text-red-600">Vim Rides</h2>
+                <h2 class="text-2xl font-bold text-red-600">Yurban Rides</h2>
             </div>
             <ul class="mt-6 space-y-4">
                 <li>
